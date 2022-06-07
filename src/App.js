@@ -1,7 +1,18 @@
 import "./main.css";
 import {isMobile} from "react-device-detect";
-
+function imgVal(){
+  let val =null;
+  if(isMobile){
+    val =process.env.PUBLIC_URL + "/images/image-header-mobile.jpg";
+    return val;
+  }
+  else{
+    val= process.env.PUBLIC_URL + "/images/image-header-desktop.jpg";
+    return val;
+  }
+}
 function App() {
+  let val = imgVal();
   return (
     <div className="main-card">
       <div className="content-box">
@@ -18,7 +29,7 @@ function App() {
           </div>
       </div>
       <div className="banner-box">
-        <img src={process.env.PUBLIC_URL + isMobile?'/images/image-header-mobile.jpg':'/images/image-header-desktop.jpg'}></img>
+        <img src={val} alt="group"></img>
       </div>
 
     </div>
